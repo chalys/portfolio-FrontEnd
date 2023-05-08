@@ -8,5 +8,6 @@ export const environment = {
     messagingSenderId: '409150464979',
   },
   production: true,
-  URL: 'https://backendcral.onrender.com/'
+  /*URL: 'https://backendcral.onrender.com/'*/
+  URL: 'http://localhost:8080/'
   };

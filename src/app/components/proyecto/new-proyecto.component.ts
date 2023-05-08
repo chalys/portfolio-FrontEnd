@@ -9,11 +9,18 @@ import { ProyectoService } from 'src/app/service/proyecto.service';
   styleUrls: ['./new-proyecto.component.css']
 })
 export class NewProyectoComponent implements OnInit {
-  nombreP: string = '';
+/*  nombreP: string = '';
   fechaP: string = '';
   descripcionP: string = '';
   linkP: string = '';
-  imgP: string = '';
+  imgP: string = '';*/
+
+  nombreP : string='';
+  fecha_inicio : Date=new Date();
+  fecha_fin : Date=new Date();
+  descripcion : string='';
+  url_proyecto:string='';
+  foto_proyecto_url:string='';
 
   constructor(private sProyecto: ProyectoService, private router: Router) { }
 
@@ -21,7 +28,7 @@ export class NewProyectoComponent implements OnInit {
   }
 
   onCreate(): void {
-    const expe = new Proyecto(this.nombreP, this.fechaP, this.descripcionP, this.linkP, this.imgP);
+    const expe = new Proyecto(this.nombreP, this.fecha_inicio, this.fecha_fin, this.descripcion, this.url_proyecto, this.foto_proyecto_url);
     this.sProyecto.save(expe).subscribe(
       data => {
         alert("Proyecto añadido");

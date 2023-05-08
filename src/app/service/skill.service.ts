@@ -17,7 +17,7 @@ export class SkillService {
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Skill[]>{
-    return this.httpClient.get<Skill[]>(this.URL + 'lista');
+    return this.httpClient.get<Skill[]>(this.URL + 'list');
   }
 
   public detail(id: number): Observable<Skill>{
@@ -25,7 +25,7 @@ export class SkillService {
   }
 
   public save(skill: Skill): Observable<any>{
-    return this.httpClient.post<any>(this.URL + 'create', skill);
+    return this.httpClient.post<any>(this.URL + 'new', skill);
   }
 
   public update(id: number, skill: Skill): Observable<any>{

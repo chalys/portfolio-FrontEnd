@@ -53,19 +53,20 @@
     <div class="cards">
         <h3>Proyectos <a href="" routerLink="/nuevoproy" *ngIf="isLogged">Q</a></h3>
         <div class="container" *ngFor="let Proyecto of proyecto">
-            <div class="icon"><a href="#" routerLink="/editproy/{{Proyecto.id}}" *ngIf="isLogged">O</a>
-                <a href="#" (click)="delete(Proyecto.id)" *ngIf="isLogged">P</a>
+            <div class="icon"><a href="#" routerLink="/editproy/{{Proyecto.idproyecto}}" *ngIf="isLogged">O</a>
+                <a href="#" (click)="delete(Proyecto.idproyecto)" *ngIf="isLogged">P</a>
             </div>
             <div class="card">
 
                 <div class="plus">
 
-                    <img src="{{Proyecto.imgP}}" alt="{{Proyecto.imgP}}">
+                    <img src="{{Proyecto.foto_proyecto_url}}" alt="{{Proyecto.foto_proyecto_url}}">
 
                     <div class="container2">
-                        <h2>{{Proyecto.nombreP}}<a href="{{Proyecto.linkP}}" target="blank">Link</a></h2>
-                        <h4>{{Proyecto.fechaP}}</h4>
-                        <p>{{Proyecto.descripcionP}}</p>
+                        <h2>{{Proyecto.nombreP}}<a href="{{Proyecto.url_proyecto}}" target="blank">Link</a></h2>
+                        <h4>{{Proyecto.fecha_inicio}}</h4>
+                        <h4>{{Proyecto.fecha_fin}}</h4>
+                        <p>{{Proyecto.descripcion}}</p>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ export class SExperienciaService {
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Experiencia[]>{
-    return this.httpClient.get<Experiencia[]>(this.URL + 'lista');
+    return this.httpClient.get<Experiencia[]>(this.URL + 'list');
   }
 
   public detail(id: number): Observable<Experiencia>{
@@ -23,7 +23,7 @@ export class SExperienciaService {
   } 
 
   public save(experiencia: Experiencia): Observable<any>{
-    return this.httpClient.post<any>(this.URL + 'create', experiencia);
+    return this.httpClient.post<any>(this.URL + 'new', experiencia);
   }
 
   public update(id: number, experiencia: Experiencia): Observable<any>{

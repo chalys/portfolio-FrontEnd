@@ -14,17 +14,79 @@
                     <td>
                         <h2>{{Experiencia.nombreE}}</h2>
                     </td>
-                    <td>{{Experiencia.descripcionE}}</td>
+                    <td>{{Experiencia.descripcion}}</td>
                     <td *ngIf="isLogged">
-                        <button class="btn btn-light" routerLink="/editexp/{{Experiencia.id}}">
+                        <button class="btn btn-light" routerLink="/editexp/{{Experiencia.idexperiencia}}">
                             <i class="bi bi-pencil-fill"></i> EDITAR</button>
                     </td>
                     <td *ngIf="isLogged">
-                        <button class="btn btn-danger" (click)="delete(Experiencia.id)"> 
+                        <button class="btn btn-danger" (click)="delete(Experiencia.idexperiencia)"> 
                             <i class="bi bi-trash-fill"></i> BORRAR</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+
+        <div *ngFor="let Experiencia of expe">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">
+              {{ Experiencia.nombreE | uppercase }}
+            </h3>
+            <div></div>
+            <h6
+              class="card-subtitle mb-2 text-muted"
+              *ngIf="Experiencia.fecha_fin == null; else TemplateFechaFin"
+            >
+              Desde: {{ Experiencia.fecha_inicio | date : 'dd/MM/y' }}
+            </h6>
+            <!--
+            <h6
+              class="card-subtitle mb-2 text-muted"
+            >
+              Tipo Empleo: {{ Experiencia.idtipo_empleo }}
+            </h6>
+            ---->
+  
+            <p class="card-text" *ngIf="Experiencia.descripcion != null">
+              {{ Experiencia.descripcion }}
+            </p>
+  
+            <ng-template #TemplateFechaFin>
+              <h6 class="card-subtitle mb-2 text-muted">
+                Desde: {{ Experiencia.fecha_inicio | date : 'dd/MM/y' }} - Hasta:
+                {{ Experiencia.fecha_fin | date : 'dd/MM/y' }}
+              </h6>
+            </ng-template>
+  
+            <div
+              class="d-grid gap-2 col-1 mx-auto"
+              *ngIf="isLogged"
+            >
+              <button
+                class="btn btn-primary"
+                type="button"
+                title="Editar"
+                routerLink="/editexp/{{ Experiencia.idexperiencia }}/{{
+                  Experiencia.idexperiencia
+                }}"
+              >
+                <i class="fa-regular fa-pen-to-square"></i><b> Editar</b>
+              </button>
+              <button
+                class="btn btn-primary"
+                type="button"
+                title="Eliminar"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                (click)="delete(Experiencia.idexperiencia)"
+              >
+                <i class="fa-solid fa-trash"></i><b> Eliminar</b>
+              </button>
+            </div>
+          </div>
+        </div>
+        <br />
+      </div>
 </div>

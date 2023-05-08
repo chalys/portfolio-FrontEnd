@@ -17,7 +17,7 @@ export class EditSkillComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    const id = this.activatedRouter.snapshot.params['id'];
+    const id = this.activatedRouter.snapshot.params['idskill'];
     this.skillS.detail(id).subscribe(
       data => {
         this.skill = data;
@@ -29,7 +29,7 @@ export class EditSkillComponent implements OnInit {
   }
 
   onUpdate(){
-    const id = this.activatedRouter.snapshot.params['id'];
+    const id = this.activatedRouter.snapshot.params['idskill'];
     this.skillS.update(id, this.skill).subscribe(
       data => {
         this.router.navigate(['']);
