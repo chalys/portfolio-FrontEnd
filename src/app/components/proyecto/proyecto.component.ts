@@ -36,11 +36,7 @@ export class ProyectoComponent implements OnInit {
         this.proyecto = data;
       },
       (err) => {
-        Swal.fire(
-          'Se encontro un error en la lista',
-          'Volver al inicio',
-          'error'
-        );
+        Swal.fire('Se encontro un error en la lista','Volver al inicio','error');
         this.router.navigate(['']);
       }
     );

@@ -34,11 +34,7 @@ export class EducacionComponent implements OnInit {
       (data) => {
       this.educacion = data;
     },(err) => {
-      Swal.fire(
-        'Se encontro un error en la lista',
-        'Volver al inicio',
-        'error'
-      );
+      Swal.fire('Se encontro un error en la lista','Volver al inicio','error');
       this.router.navigate(['']);
     }
     );

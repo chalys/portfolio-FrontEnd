@@ -33,11 +33,7 @@ export class EditSkillComponent implements OnInit {
         this.skill = data;
       },
       (err) => {
-        Swal.fire(
-          'Error al modificar el registro',
-          'Vuelva a intentarlo',
-          'error'
-        );
+        Swal.fire('Se encontro un error en la lista','Volver al inicio','error');
         this.router.navigate(['']);
       }
     );

@@ -35,7 +35,7 @@ export class EditProyectoComponent implements OnInit {
         this.proyecto = data;
       },
       (err) => {
-        alert('Error al modificar el proyecto');
+        Swal.fire('Se encontro un error en la lista','Volver al inicio','error');
         this.router.navigate(['']);
       }
     );

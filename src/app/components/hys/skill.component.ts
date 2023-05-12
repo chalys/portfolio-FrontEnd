@@ -36,11 +36,7 @@ export class HysComponent implements OnInit {
         this.skill = data;
       },
       (err) => {
-        Swal.fire(
-          'Se encontro un error en la lista',
-          'Volver al inicio',
-          'error'
-        );
+        Swal.fire('Se encontro un error en la lista','Volver al inicio','error');
         this.router.navigate(['']);
       }
     );

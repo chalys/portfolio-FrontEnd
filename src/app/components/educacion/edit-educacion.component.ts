@@ -35,7 +35,7 @@ export class EditeducacionComponent implements OnInit {
         this.educacion = data;
       },
       (err) => {
-        alert('Error al modificar la institucion');
+        Swal.fire('Se encontro un error en la lista','Volver al inicio','error');
         this.router.navigate(['']);
       }
     );

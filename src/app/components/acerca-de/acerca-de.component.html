@@ -1,20 +1,33 @@
-<div>
-    <button type="button" class="btn btn-primary" routerLink="/editacercade/1" *ngIf="isLogged">
-        Editar Persona
-    </button>
-</div>
-<div class="row">
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <img src={{persona.img}} class="img-fluid" alt="Fotografia" id="fotodeperfil">
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column" *ngIf="persona">
+        <!-- Masthead Avatar Image-->
+        <a href="{{ persona.foto_perfil_url }}" target="_blank">
+            <img src="{{ persona.foto_perfil_url }}" class="masthead-avatar mb-5" id="foto-perfil" alt="Foto de perfil"
+                title="Foto de perfil" />
+        </a>
+
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">
+            {{ persona.nombre }} {{ persona.apellido }}
+        </h1>
+
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">
+            {{ persona.profesion }}
+        </p>
+
+        <h1 class="page-section-heading text-center text-uppercase text-secondary mb-0">Acerca de mi</h1>
+        <p class="description">
+            {{ persona.descripcion }}
+        </p>
+
+        <div class="d-grid gap-2 col-1 mx-auto" *ngIf="isLogged">
+            <button class="btn btn-light" type="button" title="Editar perfil" routerLink="/editacercade/1"
+                *ngIf="isLogged">
+                <i class="bi bi-pencil-fill"></i>
+            </button>
+        </div>
+        <br>
     </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <p id ="nombre">{{persona.nombre}} {{persona.apellido}}</p>
-        <p>Full Stack developer Jr.</p>
-    </div>
-    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 descripcion">
-        <span>
-            <h1>Acerca de mí</h1>
-            <p>{{persona.descripcion}}</p>
-        </span>
-    </div>
-</div>
+    
+</header>

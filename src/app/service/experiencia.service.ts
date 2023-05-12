@@ -9,9 +9,8 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class SExperienciaService {
 
-  URL = environment.URL + 'explab/'; /*
-  expURL = 'http://localhost:8080/explab/';
-*/
+  URL = environment.URL + 'explab/'; 
+  
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Experiencia[]>{
