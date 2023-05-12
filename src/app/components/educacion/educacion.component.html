@@ -1,31 +1,49 @@
-<div class="row">
-    <h1>Educacion</h1>
-    <div class="col-lg-2">
-        <button type="button" class="btn btn-dark" routerLink="/nuevaedu" *ngIf="isLogged">
-            Agregar Educacion
-        </button>
-    </div>
+<section class="page-section portfolio" id="portfolio">
+  <div class="container">
+    <!-- Portfolio Section Heading-->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+      Educacion
+    </h2>
 
-    <div class="col lg 1"></div>
-    <div class="col-lg-11">
-        <table class="table">
-            <tbody>
-                <tr *ngFor="let Educacion of educacion">
-                    <td>
-                        <h2>{{Educacion.nombreE}}</h2>
-                    </td>
-                    <td>{{Educacion.descripcionE}}</td>
-                    <td *ngIf="isLogged">
-                        <button class="btn btn-light" routerLink="/editedu/{{Educacion.id}}">
-                            <i class="bi bi-pencil-fill"></i> EDITAR</button>
-                    </td>
-                    <td *ngIf="isLogged">
-                        <button class="btn btn-danger" (click)="delete(Educacion.id)">
-                            <i class="bi bi-trash-fill"></i> BORRAR</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <button type="button" class="btn btn-outline-dark" title="Agregar educacion" routerLink="/newedu" *ngIf="isLogged">
+      <i class="bi bi-plus-circle-fill"></i>
+    </button>
 
-</div>
+    <br />
+    <br />
+    <div *ngFor="let Educacion of educacion">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">{{ Educacion.nombreE | uppercase }}</h3>
+          <div></div>
+          <h6 class="card-subtitle mb-2 text-muted" *ngIf="Educacion.fecha_fin == null; else TemplateFechaFin">
+            Desde: {{ Educacion.fecha_inicio | date : "dd/MM/y" }}
+          </h6>
+          <p class="card-text" *ngIf="Educacion.descripcion != null">
+            {{ Educacion.descripcion }}
+          </p>
+
+          <ng-template #TemplateFechaFin>
+            <h6 class="card-subtitle mb-2 text-muted">
+              Desde: {{ Educacion.fecha_inicio | date : "dd/MM/y" }} - Hasta:
+              {{ Educacion.fecha_fin | date : "dd/MM/y" }}
+            </h6>
+          </ng-template>
+
+          <div class="d-grid gap-2 col-1 mx-auto" *ngIf="isLogged">
+            <button class="btn btn-light" type="button" title="Editar educacion"
+              routerLink="/editedu/{{ Educacion.ideducacion }}">
+              <i class="bi bi-pencil-fill"></i>
+            </button>
+
+            <button class="btn btn-danger" type="button" title="Eliminar educacion"
+              (click)="delete(Educacion.ideducacion)">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</section>

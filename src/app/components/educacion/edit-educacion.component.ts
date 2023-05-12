@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Experiencia } from 'src/app/model/experiencia';
-import { SExperienciaService } from 'src/app/service/s-experiencia.service';
+import { Educacion } from 'src/app/model/educacion';
+import { EducacionService } from 'src/app/service/educacion.service';
 import { TokenService } from 'src/app/service/token.service';
+import { ImageService } from 'src/app/service/image.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-edit-experiencia',
-  templateUrl: './edit-experiencia.component.html',
-  styleUrls: ['./edit-experiencia.component.css'],
+  selector: 'app-editeducacion',
+  templateUrl: './edit-educacion.component.html',
+  styleUrls: ['./edit-educacion.component.css'],
 })
-export class EditExperienciaComponent implements OnInit {
-  expLab: Experiencia = null;
-
-
+export class EditeducacionComponent implements OnInit {
+  educacion: Educacion = null;
 
   constructor(
-    private sExperiencia: SExperienciaService,
+    private educacionS: EducacionService,
     private activatedRouter: ActivatedRoute,
     private router: Router,
+    public imageService: ImageService,
     private tokenService: TokenService
   ) {}
-  
+
   IsLoadding = false;
   isLogged = false;
 
@@ -30,13 +30,12 @@ export class EditExperienciaComponent implements OnInit {
       this.isLogged = true;
     }
     const id = this.activatedRouter.snapshot.params['id'];
-    console.log(id);
-    this.sExperiencia.detail(id).subscribe(
+    this.educacionS.detail(id).subscribe(
       (data) => {
-        this.expLab = data;
+        this.educacion = data;
       },
       (err) => {
-        alert('Error al modificar experiencia');
+        alert('Error al modificar la institucion');
         this.router.navigate(['']);
       }
     );
@@ -45,7 +44,7 @@ export class EditExperienciaComponent implements OnInit {
   onUpdate(): void {
     this.IsLoadding = true;
     const id = this.activatedRouter.snapshot.params['id'];
-    this.sExperiencia.update(id, this.expLab).subscribe(
+    this.educacionS.update(id, this.educacion).subscribe(
       (data) => {
         Swal.fire('Registro modificado', 'Press Ok', 'success');
         this.router.navigate(['']);
@@ -60,5 +59,12 @@ export class EditExperienciaComponent implements OnInit {
         this.router.navigate(['']);
       }
     );
+  }
+
+  //Metodo para llamar al Servicio de Imagen
+  uploadImage($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = 'perfil_' + id;
+    this.imageService.uploadImage($event, name);
   }
 }
