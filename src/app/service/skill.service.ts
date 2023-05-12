@@ -11,9 +11,7 @@ import { environment } from 'src/environments/environment.prod';
 
 export class SkillService {
 
-  URL = environment.URL + 'skill/'; /*
-  URL = 'http://localhost:8080/skill/';
-*/
+  URL = environment.URL + 'skill/';
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Skill[]>{

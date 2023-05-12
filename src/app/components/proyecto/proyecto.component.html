@@ -1,49 +1,49 @@
 <section class="page-section portfolio" id="portfolio">
-    <div class="container">
-      <!-- Portfolio Section Heading-->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
-        Proyecto
-      </h2>
-  
-      <button type="button" class="btn btn-outline-dark" title="Agregar proyecto" routerLink="/newproy" *ngIf="isLogged">
-        <i class="bi bi-plus-circle-fill"></i>
-      </button>
-  
-      <br />
-      <br />
-      <div *ngFor="let Proyecto of proyecto">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">{{ Proyecto.nombreP | uppercase }}</h3>
-            <div></div>
-            <h6 class="card-subtitle mb-2 text-muted" *ngIf="Proyecto.fecha_fin == null; else TemplateFechaFin">
-              Desde: {{ Proyecto.fecha_inicio | date : "dd/MM/y" }}
+  <div class="container">
+    <!-- Portfolio Section Heading-->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+      Proyectos
+    </h2>
+
+    <button type="button" class="btn btn-outline-dark" title="Agregar proyecto" routerLink="/newproy" *ngIf="isLogged">
+      <i class="bi bi-plus-circle-fill"></i>
+    </button>
+
+    <br />
+    <br />
+    <div *ngFor="let Proyecto of proyecto">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">{{ Proyecto.nombreP | uppercase }}</h3>
+          <div></div>
+          <h6 class="card-subtitle mb-2 text-muted" *ngIf="Proyecto.fecha_fin == null; else TemplateFechaFin">
+            Desde: {{ Proyecto.fecha_inicio | date : "dd/MM/y" }}
+          </h6>
+          <p class="card-text" *ngIf="Proyecto.descripcion != null">
+            {{ Proyecto.descripcion }}
+          </p>
+
+          <ng-template #TemplateFechaFin>
+            <h6 class="card-subtitle mb-2 text-muted">
+              Desde: {{ Proyecto.fecha_inicio | date : "dd/MM/y" }} - Hasta:
+              {{ Proyecto.fecha_fin | date : "dd/MM/y" }}
             </h6>
-            <p class="card-text" *ngIf="Proyecto.descripcion != null">
-              {{ Proyecto.descripcion }}
-            </p>
-  
-            <ng-template #TemplateFechaFin>
-              <h6 class="card-subtitle mb-2 text-muted">
-                Desde: {{ Proyecto.fecha_inicio | date : "dd/MM/y" }} - Hasta:
-                {{ Proyecto.fecha_fin | date : "dd/MM/y" }}
-              </h6>
-            </ng-template>
-  
-            <div class="d-grid gap-2 col-1 mx-auto" *ngIf="isLogged">
-              <button class="btn btn-light" type="button" title="Editar proyecto"
-                routerLink="/editproy/{{ Proyecto.idproyecto }}">
-                <i class="bi bi-pencil-fill"></i>
-              </button>
-  
-              <button class="btn btn-danger" type="button" title="Eliminar proyecto"
-                (click)="delete(Proyecto.idproyecto)">
-                <i class="bi bi-trash-fill"></i>
-              </button>
-            </div>
+          </ng-template>
+
+          <div class="d-grid gap-2 col-1 mx-auto" *ngIf="isLogged">
+            <button class="btn btn-light" type="button" title="Editar proyecto"
+              routerLink="/editproy/{{ Proyecto.idproyecto }}">
+              <i class="bi bi-pencil-fill"></i>
+            </button>
+
+            <button class="btn btn-danger" type="button" title="Eliminar proyecto"
+              (click)="delete(Proyecto.idproyecto)">
+              <i class="bi bi-trash-fill"></i>
+            </button>
           </div>
         </div>
-        <br />
       </div>
+      <br />
     </div>
-  </section>
+  </div>
+</section>
