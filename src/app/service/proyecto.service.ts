@@ -1,18 +1,16 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { finalize, Observable } from "rxjs";
+import { Observable } from "rxjs";
 import { Proyecto } from "../model/proyecto";
 import { environment } from "src/environments/environment.prod";
-//import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Injectable({
   providedIn: "root",
 })
 export class ProyectoService {
 
-  URL = environment.URL + 'proyecto/'; /*
-  URL = "http://localhost:8080/proyecto/";
-*/
+  URL = environment.URL + 'proyecto/'; 
+
   constructor(private httpClient: HttpClient) {}
 
   public lista(): Observable<Proyecto[]> {
@@ -34,23 +32,4 @@ export class ProyectoService {
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.URL + `delete/${id}`);
   }
-/*  uploadImage(file: any, path: string, name: string): Promise<string> {
-    return new Promise((resolve) => {
-      const filePath = path + "/" + name;
-      const ref = this.storage.ref(filePath);
-      const task = ref.put(file);
-      task
-        .snapshotChanges()
-        .pipe(
-          finalize(() => {
-            ref.getDownloadURL().subscribe((res) => {
-              const downloadURL = res;
-              resolve(downloadURL);
-              return;
-            });
-          })
-        )
-        .subscribe();
-    });
-  }*/
 }

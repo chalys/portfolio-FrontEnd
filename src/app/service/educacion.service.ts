@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-//import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Educacion } from '../model/educacion';
 import { environment } from 'src/environments/environment.prod';
 
@@ -32,25 +31,4 @@ export class EducacionService {
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.URL + `delete/${id}`);
   }
-
-  /*
-  uploadImage(file: any, path: string, name: string): Promise<string> {
-    return new Promise((resolve) => {
-      const filePath = path + '/' + name;
-      const ref = this.storage.ref(filePath);
-      const task = ref.put(file);
-      task
-        .snapshotChanges()
-        .pipe(
-          finalize(() => {
-            ref.getDownloadURL().subscribe((res) => {
-              const downloadURL = res;
-              resolve(downloadURL);
-              return;
-            });
-          })
-        )
-        .subscribe();
-    });
-  }*/
 }

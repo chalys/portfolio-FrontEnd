@@ -1,1 +1,96 @@
-<p>edit-proyecto works!</p>
+<app-header></app-header>
+<br>
+<header class="masthead text-center">
+    <div class="container" *ngIf="proyecto && isLogged">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+            Editar Proyecto
+        </h2>
+        <br>
+        <!-- Contact Section Form-->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <form class="was-validated needs-validation" id="contactForm" (ngSubmit)="onUpdate()" novalidate
+                    #f="ngForm">
+
+                    <!-- Id proyecto-->
+                    <div class="form-floating mb-3" [hidden]="true">
+                        <input class="form-control" id="idproyecto" name="idproyecto" type="text" required
+                            [(ngModel)]="proyecto.idproyecto" disabled="true" />
+                        <label for="name">ID</label>
+                    </div>
+
+                    <!-- Nombre del proyecto-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="nombreP" name="nombreP" type="text"
+                            placeholder="Ingrese el nombre de la institucion" required [(ngModel)]="proyecto.nombreP" />
+                        <label for="nombreP">Nombre de la institucion</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- Descripcion-->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="descripcion" name="descripcion" type="text"
+                            placeholder="Escriba una descripcion" style="height: 10rem"
+                            [(ngModel)]="proyecto.descripcion" required></textarea>
+                        <label for="descripcion">Descripcion</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- Fecha de Inicio-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="fechaInicio" name="fechaInicio" type="date"
+                            placeholder="Fecha de inicio" required [(ngModel)]="proyecto.fecha_inicio" />
+                        <label for="fechaInicio">Fecha de inicio</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            La fecha no es valida
+                        </div>
+                    </div>
+
+                    <!-- Fecha de Final-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="fechaFin" name="fechaFin" type="date" placeholder="Fecha Final"
+                            required [(ngModel)]="proyecto.fecha_fin" />
+                        <label for="fechaInicio">Fecha Final</label>
+                    </div>
+
+                    <!-- Url Proyecto-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="url_proyecto" name="url_proyecto" type="text"
+                            placeholder="Ingrese el LINK del proyecto" [(ngModel)]="proyecto.url_proyecto" />
+                        <label for="url_proyecto">Link del proyecto</label>
+                    </div>
+
+                    <!-- foto proyecto -->
+                    <div class="form-floating mb-3">
+                        <input type="file" id="img" class=" form-control" name="img" (change)="uploadImage($event)"
+                            accept="jpg jpeg png">
+                        <label for="img">Logo de Institucion</label>
+                        <div class="invalid-feedback">Logo no válido</div>
+                    </div>
+                    <div class="form-outline mb-2">
+                        <img id="foto-perfil" [src]="imageService.url" style="width: 200px; height: 200px;"><br>
+                        <label for="img">Logo seleccionado</label>
+                    </div>
+
+                    <!-- Submit Button-->
+                    <div>
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit" name="button"
+                            title="Enviar">
+                            ENVIAR
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+<app-footer></app-footer>

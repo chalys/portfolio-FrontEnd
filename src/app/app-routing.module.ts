@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'editskill/:id', component: EditSkillComponent},
   { path: 'editacercade/:id', component: EditAcercaDeComponent},
   { path: 'newproy', component: NewProyectoComponent},
-  { path: 'editproy', component: EditProyectoComponent},
+  { path: 'editproy/:id', component: EditProyectoComponent},
 
 ];
 

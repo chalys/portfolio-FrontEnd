@@ -48,12 +48,12 @@ export class EducacionComponent implements OnInit {
     if (id != undefined) {
       this.educacionS.delete(id).subscribe(
         (data) => {
-          Swal.fire('Se elimino la educación', 'Press Ok', 'success');
+          Swal.fire('Se elimino la institucion', 'Press Ok', 'success');
           this.cargarEducacion();
         },
         (err) => {
           Swal.fire(
-            'No se ha podido eliminar la educación',
+            'No se ha podido eliminar la institucion',
             'Volver a intertarlo',
             'error'
           );
@@ -61,12 +61,4 @@ export class EducacionComponent implements OnInit {
       );
     }
   }
-
-
-
-
-
-
-
-
 }
