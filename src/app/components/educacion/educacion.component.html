@@ -13,6 +13,7 @@
     <br />
     <div *ngFor="let Educacion of educacion">
       <div class="card">
+        <img class="card-img-top" src="{{ Educacion.logo_institucion_url }}" alt="Logo Institucion">
         <div class="card-body">
           <h3 class="card-title">{{ Educacion.nombreE | uppercase }}</h3>
           <div></div>

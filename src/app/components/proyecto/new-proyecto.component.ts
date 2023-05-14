@@ -45,6 +45,7 @@ export class NewProyectoComponent implements OnInit {
       this.url_proyecto,
       this.foto_proyecto_url
     );
+    
     this.proyectoS.save(proy).subscribe(
       (data) => {
         Swal.fire('Proyecto añadido', 'Press Ok', 'success');
@@ -60,7 +61,7 @@ export class NewProyectoComponent implements OnInit {
   //Metodo para llamar al Servicio de Imagen
   uploadImage($event: any) {
     const id = this.activatedRouter.snapshot.params['id'];
-    const name = 'perfil_' + id;
+    const name = 'proyecto_' + id;
     this.imageService.uploadImage($event, name);
   }
 }

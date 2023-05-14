@@ -64,7 +64,7 @@ export class EditProyectoComponent implements OnInit {
   //Metodo para llamar al Servicio de Imagen
   uploadImage($event: any) {
     const id = this.activatedRouter.snapshot.params['id'];
-    const name = 'perfil_' + id;
+    const name = 'proyecto_' + id;
     this.imageService.uploadImage($event, name);
   }
 }
