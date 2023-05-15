@@ -1,0 +1,51 @@
+<section class="page-section portfolio" id="portfolio">
+  <div class="container">
+    <!-- Portfolio Section Heading-->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+      Experiencia Laboral
+    </h2>
+
+    <button type="button" class="btn btn-outline-dark" title="Agregar experiencia" routerLink="/newexp"
+      *ngIf="isLogged">
+      <i class="bi bi-plus-circle-fill"></i>
+    </button>
+
+    <br />
+    <br />
+    <div *ngFor="let Experiencia of expe">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">{{ Experiencia.nombreE | uppercase }}</h3>
+          <div></div>
+
+          <h6 class="card-subtitle mb-2 text-muted" *ngIf="Experiencia.fecha_fin == null; else TemplateFechaFin">
+            Desde: {{ Experiencia.fecha_inicio | date : "dd/MM/y" }}
+          </h6>
+          <p class="card-text" *ngIf="Experiencia.descripcion != null">
+            {{ Experiencia.descripcion }}
+          </p>
+
+          <ng-template #TemplateFechaFin>
+            <h6 class="card-subtitle mb-2 text-muted">
+              Desde: {{ Experiencia.fecha_inicio | date : "dd/MM/y" }} - Hasta:
+              {{ Experiencia.fecha_fin | date : "dd/MM/y" }}
+            </h6>
+          </ng-template>
+
+          <div class="d-grid gap-2 col-1 mx-auto" *ngIf="isLogged">
+            <button class="btn btn-light" type="button" title="Editar experiencia"
+              routerLink="/editexp/{{ Experiencia.idexperiencia }}">
+              <i class="bi bi-pencil-fill"></i>
+            </button>
+            
+            <button class="btn btn-danger" type="button" title="Eliminar experiencia"
+              (click)="delete(Experiencia.idexperiencia)">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</section>

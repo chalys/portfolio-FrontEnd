@@ -32,17 +32,19 @@
             </h6>
           </ng-template>
 
-          <div class="d-grid gap-2 col-1 mx-auto" *ngIf="isLogged">
-            <button class="btn btn-light" type="button" title="Editar experiencia"
+          <div class="gap-2 d-md-flex justify-content-md-end mb-2" *ngIf="isLogged">
+            <button class="btn btn-primary btn-xs" type="button" title="Editar experiencia"
               routerLink="/editexp/{{ Experiencia.idexperiencia }}">
               <i class="bi bi-pencil-fill"></i>
             </button>
             
-            <button class="btn btn-danger" type="button" title="Eliminar experiencia"
+            <button class="btn btn-secondary btn-xs" type="button" title="Eliminar experiencia"
               (click)="delete(Experiencia.idexperiencia)">
               <i class="bi bi-trash-fill"></i>
             </button>
           </div>
+
+
         </div>
       </div>
       <br />

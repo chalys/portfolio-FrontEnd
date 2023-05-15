@@ -1,0 +1,85 @@
+<app-header></app-header>
+<br>
+<header class="masthead text-center">
+    <div class="container" *ngIf="isLogged">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+            Nuevo Proyecto
+        </h2>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <form class="was-validated needs-validation" id="contactForm" (ngSubmit)="onCreate()" novalidate
+                    #f="ngForm">
+
+                    <!-- Nombre de Proyecto -->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="nombreP" name="nombreP" type="text"
+                            placeholder="Ingrese el nombre del proyecto" required [(ngModel)]="nombreP" />
+                        <label for="nombreP" class="form-label">Nombre de proyecto</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="descripcion" type="text"
+                            placeholder="Escriba una descripcion" style="height: 10rem" [(ngModel)]="descripcion"
+                            name="descripcion" required></textarea>
+                        <label for="descripcion">Descripcion</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- Fecha de Inicio-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="fecha_inicio" name="fecha_inicio" type="date"
+                            placeholder="Fecha de inicio" required [(ngModel)]="fecha_inicio" />
+                        <label for="fecha_inicio">Fecha de inicio</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            La fecha no es valida
+                        </div>
+                    </div>
+
+                    <!-- Fecha de Final-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="fecha_fin" name="fecha_fin" type="date"
+                            placeholder="Fecha Final" required [(ngModel)]="fecha_fin" />
+                        <label for="fecha_fin">Fecha Final</label>
+                    </div>
+
+                    <!-- Direccion de proyecto-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="url_proyecto" name="url_proyecto" type="text"
+                            placeholder="Ingrese el LINK del proyecto" [(ngModel)]="url_proyecto" />
+                        <label for="url_proyecto">Link del proyecto</label>
+                    </div>
+
+                    <!-- Foto Proyecto -->
+                    <div class="form-floating mb-3">
+                        <!-- <input type="file" id="img" class=" form-control" name="img" (change)="uploadImage($event)"
+                            accept="jpg jpeg png" required> -->
+                        <label for="img">Foto proyecto</label>
+                        <div class="invalid-feedback">Foto no válido</div>
+                    </div>
+                    <div class="form-outline mb-2">
+                        <!-- <img id="foto-perfil" [src]="imageService.url" style="width: 200px; height: 200px;"><br> -->
+                        <label for="img">Foto seleccionado</label>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit" title="Enviar">
+                            Agregar proyecto
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+<app-footer></app-footer>

@@ -25,21 +25,156 @@
                 </div>
                 <br>
                 <button class="btn btn-primary">
-                    Editar educacion
+                    Editar persona
                 </button>
             </form>
         </div>
     </div>
 </div> -->
 
+<app-header></app-header>
+<br>
+<header class="masthead text-center">
+    <div class="container" *ngIf="persona && isLogged">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+            Editar Perfil
+        </h2>
+        <br>
+        <!-- Contact Section Form-->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <form class="was-validated needs-validation" id="contactForm" (ngSubmit)="onUpdate()" novalidate
+                    #f="ngForm">
 
+                    <!-- Id persona-->
+                    <div class="form-floating mb-3" [hidden]="true">
+                        <input class="form-control" id="idpersona" name="idpersona" type="text" required
+                            [(ngModel)]="persona.idpersona" disabled="true" />
+                        <label for="name">ID</label>
+                    </div>
+
+                    <!-- Nombre/s -->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="nombre" name="nombre" type="text"
+                            placeholder="Ingrese su nombre/s" required [(ngModel)]="persona.nombre" />
+                        <label for="nombre">Nombre/s</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- Apellido/s -->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="apellido" name="apellido" type="text"
+                            placeholder="Ingrese sus apellido/s" required [(ngModel)]="persona.apellido" />
+                        <label for="apellido">Apellido/s</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- Profesion -->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="profesion" name="profesion" type="text"
+                            placeholder="Ingrese su profesión" required [(ngModel)]="persona.profesion" />
+                        <label for="profesion">profesion/s</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- Descripcion-->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="descripcion" name="descripcion" type="text"
+                            placeholder="Escriba una descripcion" style="height: 10rem"
+                            [(ngModel)]="persona.descripcion" required></textarea>
+                        <label for="descripcion">Descripcion</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- pais -->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="pais" name="pais" type="text"
+                            placeholder="Ingrese el pais de procedencia" required [(ngModel)]="persona.pais" />
+                        <label for="pais">pais/s</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- Fecha Nacimiento-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="fechaNacimiento" name="fechaNacimiento" type="date"
+                            placeholder="Seleccione la Fecha de nacimiento" required
+                            [(ngModel)]="persona.fecha_nacimiento" />
+                        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            La fecha no es valida
+                        </div>
+                    </div>
+
+                    <!-- Telefono -->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="telefono" name="telefono" type="text"
+                            placeholder="Ingrese el numero telefonico" required [(ngModel)]="persona.telefono" />
+                        <label for="telefono">Numero telefonico</label>
+                        <!-- Mensajes para validación -->
+                        <div class="invalid-feedback">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <!-- Foto perfil -->
+                    <div class="form-floating mb-3">
+                        <input type="file" id="fotoPerfil" class=" form-control" name="fotoPerfil"
+                            (change)="uploadImage($event)" accept="jpg jpeg png">
+                        <label for="fotoPerfil">Fotografia perfil</label>
+                        <div class="invalid-feedback">Fotografia no válido</div>
+                    </div>
+                    <div class="form-outline mb-2">
+                        <img id="foto-perfil" [src]="persona.foto_perfil_url" style="width: 200px; height: 200px;"><br>
+                        <label for="fotoPerfil">Logo seleccionado</label>
+                    </div>
+
+                    <!-- Submit Button-->
+                    <div>
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit" name="button"
+                            title="Enviar">
+                            ENVIAR
+                        </button>
+                        <button class="btn btn-secondary btn-xl" type="button"
+                            onclick="window.location.href='/'">CANCELAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+<app-footer></app-footer>
+
+
+<!-- 
 <div style="background: linear-gradient(#292e49, #536976, #96b6b6); padding: 0%; margin: 0%;">
     <section>
         <div class="container py-5 h-100" *ngIf="persona">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+
+
                     <button class="btn btn-light btn-lg mb-1" type="button" style="background-color: white;"
                         onclick="window.location.href='/'">BACK</button>
+
+
                     <div class="card shadow-2-strong" style="border-radius: 1rem;">
                         <div class="card-body px-5 pt-5 pb-5 text-center">
                             <h3 class="mb-5">EDITAR PERFIL</h3>
@@ -71,7 +206,7 @@
                                         style="width: 200px; height: 200px;"><br>
                                     <label for="img">Foto de perfil seleccionada</label>
                                 </div>
-                                
+
                                 <button class="btn btn-outline-secondary btn-lg px-5 mt-4 mb-2" type="submit">ACTUALIZAR
                                     PERFIL</button>
                             </form>
@@ -81,4 +216,4 @@
             </div>
         </div>
     </section>
-</div> 
+</div> -->

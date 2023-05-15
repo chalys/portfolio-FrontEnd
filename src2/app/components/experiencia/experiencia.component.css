@@ -1,0 +1,15 @@
+.row{
+    padding: 20px;
+}
+
+div{
+    background-color: #ffffff;
+}
+
+h1,h3{
+    display: inline;
+}
+
+.card-text{
+    white-space: pre-line
+}

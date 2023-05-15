@@ -64,15 +64,15 @@
 
                     <!-- Logo Institucion -->
                     <div class="form-floating mb-3">
-                        <input type="file" id="img" class=" form-control" name="img" (change)="uploadImage($event)"
+                        <input type="file" id="imgEdu" class=" form-control" name="imgEdu" (change)="uploadImage($event)"
                             accept="jpg jpeg png">
-                        <label for="img">Logo de Institucion</label>
+                        <label for="imgEdu">Logo de Institucion</label>
                         <div class="invalid-feedback">Logo no válido</div>
                     </div>
-                    <div class="form-outline mb-2">
-                        <img id="foto-perfil" [src]="imageService.url" style="width: 200px; height: 200px;"><br>
-                        <label for="img">Logo seleccionado</label>
-                    </div>
+                    <!-- <div class="form-outline mb-2">
+                        <img id="logo-edu" [src]="educacion.logo_institucion_url" style="width: 200px; height: 200px;"><br>
+                        <label for="imgEdu">Logo seleccionado</label>
+                    </div> -->
 
                     <!-- Submit Button-->
                     <div>

@@ -1,0 +1,68 @@
+<!-- <section class="page-section portfolio" id="portfolio">
+  <div class="container"> -->
+    <!-- Portfolio Section Heading-->
+    <!-- <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+      Educacion
+    </h2>
+
+    <button type="button" class="btn btn-outline-dark" title="Agregar educacion" routerLink="/newedu" *ngIf="isLogged">
+      <i class="bi bi-plus-circle-fill"></i>
+    </button>
+
+    <br />
+    <br />
+    <div *ngFor="let Educacion of educacion">
+      <div class="card">  -->
+        <!-- <img class="card-img-top" src="{{ Educacion.logo_institucion_url }}" alt="Logo Institucion"> -->
+         <!-- <div class="card-body">
+          <h3 class="card-title">{{ Educacion.nombreE | uppercase }}</h3>
+          <div></div>
+          <h6 class="card-subtitle mb-2 text-muted" *ngIf="Educacion.fecha_fin == null; else TemplateFechaFin">
+            Desde: {{ Educacion.fecha_inicio | date : "dd/MM/y" }}
+          </h6>
+          <p class="card-text" *ngIf="Educacion.descripcion != null">
+            {{ Educacion.descripcion }}
+          </p>
+
+          <ng-template #TemplateFechaFin>
+            <h6 class="card-subtitle mb-2 text-muted">
+              Desde: {{ Educacion.fecha_inicio | date : "dd/MM/y" }} - Hasta:
+              {{ Educacion.fecha_fin | date : "dd/MM/y" }}
+            </h6>
+          </ng-template>
+
+          <div class="d-grid gap-2 col-1 mx-auto" *ngIf="isLogged"> -->
+            <!-- <button class="btn btn-light" type="button" title="Editar educacion"
+              routerLink="/editedu/{{ Educacion.ideducacion }}">
+              <i class="bi bi-pencil-fill"></i>
+            </button> -->
+<!-- 
+            <button class="btn btn-danger" type="button" title="Eliminar educacion"
+              (click)="delete(Educacion.ideducacion)">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</section> -->
+
+
+<div class="container2" id="educa">
+  <h4>Educacion <a href="" routerLink="/nuevaedu" *ngIf="isLogged">Q</a></h4>
+  <div class="container" id="educacion">
+      <div class="card" *ngFor="let Educa of educacion">
+          <a href="#" routerLink="/editedu/{{Educa.ideducacion}}" *ngIf="isLogged">O</a>
+          <a href="#" (click)="delete(Educa.ideducacion)" *ngIf="isLogged">P</a>
+          <div class="card2">
+              <img src="{{Educa.logo_institucion_url}}" alt="Agregar IMG en Editar"
+                  class="profile" />
+              <h2>{{Educa.nombreE}}</h2>
+               <p>{{Educa.descripcion}}</p>
+
+          </div>
+      </div>
+  </div>
+</div>

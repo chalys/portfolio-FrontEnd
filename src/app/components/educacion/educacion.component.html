@@ -12,37 +12,42 @@
     <br />
     <br />
     <div *ngFor="let Educacion of educacion">
+
       <div class="card">
-        <img class="card-img-top" src="{{ Educacion.logo_institucion_url }}" alt="Logo Institucion">
-        <div class="card-body">
-          <h3 class="card-title">{{ Educacion.nombreE | uppercase }}</h3>
-          <div></div>
-          <h6 class="card-subtitle mb-2 text-muted" *ngIf="Educacion.fecha_fin == null; else TemplateFechaFin">
-            Desde: {{ Educacion.fecha_inicio | date : "dd/MM/y" }}
-          </h6>
-          <p class="card-text" *ngIf="Educacion.descripcion != null">
-            {{ Educacion.descripcion }}
-          </p>
 
-          <ng-template #TemplateFechaFin>
-            <h6 class="card-subtitle mb-2 text-muted">
-              Desde: {{ Educacion.fecha_inicio | date : "dd/MM/y" }} - Hasta:
-              {{ Educacion.fecha_fin | date : "dd/MM/y" }}
-            </h6>
-          </ng-template>
 
-          <div class="d-grid gap-2 col-1 mx-auto" *ngIf="isLogged">
-            <button class="btn btn-light" type="button" title="Editar educacion"
-              routerLink="/editedu/{{ Educacion.ideducacion }}">
-              <i class="bi bi-pencil-fill"></i>
-            </button>
 
-            <button class="btn btn-danger" type="button" title="Eliminar educacion"
-              (click)="delete(Educacion.ideducacion)">
-              <i class="bi bi-trash-fill"></i>
-            </button>
-          </div>
-        </div>
+            <div class="card-body">
+              <h3 class="card-title">{{ Educacion.nombreE | uppercase }}</h3>
+              <div></div>
+              <h6 class="card-subtitle mb-2 text-muted" *ngIf="Educacion.fecha_fin == null; else TemplateFechaFin">
+                Desde: {{ Educacion.fecha_inicio | date : "dd/MM/y" }}
+              </h6>
+              <p class="card-text" *ngIf="Educacion.descripcion != null">
+                {{ Educacion.descripcion }}
+              </p>
+
+              <ng-template #TemplateFechaFin>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Desde: {{ Educacion.fecha_inicio | date : "dd/MM/y" }} - Hasta:
+                  {{ Educacion.fecha_fin | date : "dd/MM/y" }}
+                </h6>
+              </ng-template>
+
+              <div class="gap-2 d-md-flex justify-content-md-end mb-2" *ngIf="isLogged">
+                <button class="btn btn-primary" type="button" title="Editar educacion"
+                  routerLink="/editedu/{{ Educacion.ideducacion }}">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+
+                <button class="btn btn-secondary" type="button" title="Eliminar educacion"
+                  (click)="delete(Educacion.ideducacion)">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </div>
+            </div>
+
+
       </div>
       <br />
     </div>

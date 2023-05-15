@@ -1,45 +1,51 @@
-<section class="vh-100 gradient-custom">
-  <div class="container py-5 h-100">
+<section class="vh-100">
+  <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
-
-            <div class="mb-md-5 mt-md-4 pb-5">
-
-              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-              <p class="text-white-50 mb-5">Por favor, ingresar usuario y clave</p>
-
-              <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
-
-                <div class="form-outline form-white mb-4">
-                  <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg"
-                    [(ngModel)]="nombreUsuario" required />
-                  <label class="form-label" for="nombreUsuario">Usuario</label>
-                </div>
-
-                <div class="form-outline form-white mb-4">
-                  <input type="password" id="password" name="password" class="form-control form-control-lg" [(ngModel)]="password"
-                    required />
-                  <label class="form-label" for="password">Password</label>
-                </div>
-
-                <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
-
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-
-              </form>
-
-            </div>
-
-            <div>
-              <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
-              </p>
-            </div>
-
-          </div>
-        </div>
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+          alt="Sample image">
       </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+        <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+          <div class="d-flex flex-row align-items-center justify-content-center">
+            <p class="lead fw-normal mb-0 me-3">LOGIN</p>
+          </div>
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0">Por favor, ingresar usuario y password</p>
+          </div>
+          <!-- User input -->
+          <div class="form-outline form-white mb-4">
+            <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg"
+              [(ngModel)]="nombreUsuario" required />
+            <label class="form-label" for="nombreUsuario">Usuario</label>
+          </div>
+          <!-- Password input -->
+          <div class="form-outline form-white mb-4">
+            <input type="password" id="password" name="password" class="form-control form-control-lg"
+              [(ngModel)]="password" required />
+            <label class="form-label" for="password">Password</label>
+          </div>
+
+          <!-- <div class="divider d-flex align-items-center my-2">
+            <button class="btn btn-primary btn-lg px-5" type="submit" style="width: 45%">Iniciar Sesión</button>
+            <button class="btn btn-secondary btn-lg px-5" type="button" style="width: 45%"
+              onclick="window.location.href='/'">Cancelar</button>
+          </div> -->
+
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
+            <button class="btn btn-secondary" type="button" onclick="window.location.href='/'">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Copyright Section-->
+  <div class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Carlos Roberto Arando Llanos | &copy; Argentina Programa 2022</small>
     </div>
   </div>
 </section>
