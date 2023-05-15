@@ -32,6 +32,8 @@ import { NewProyectoComponent } from './components/proyecto/new-proyecto.compone
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { IzquierdoComponent } from './components/header/izquierdo/izquierdo.component';
+import { DerechoComponent } from './components/header/derecho/derecho.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     EditSkillComponent,
     EditAcercaDeComponent,
     EditProyectoComponent,
-    NewProyectoComponent
+    NewProyectoComponent,
+    IzquierdoComponent,
+    DerechoComponent
   ],
   imports: [
     BrowserModule,

@@ -3,20 +3,22 @@ import { Router } from '@angular/router';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
-  selector: 'app-logo-ap',
-  templateUrl: './logo-ap.component.html',
-  styleUrls: ['./logo-ap.component.css'],
+  selector: 'app-derecho',
+  templateUrl: './derecho.component.html',
+  styleUrls: ['./derecho.component.css']
 })
-export class LogoAPComponent implements OnInit {
+export class DerechoComponent {
   isLogged = false;
+
   constructor(private router: Router, private tokenService: TokenService) {}
 
+  login() {
+    this.router.navigate(['/login']);
+  }
+
   ngOnInit(): void {
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
+    if (this.tokenService.getToken()) this.isLogged = true;
+    else this.isLogged = false;
   }
 
   onLogOut(): void {
@@ -24,7 +26,4 @@ export class LogoAPComponent implements OnInit {
     window.location.reload();
   }
 
-  login() {
-    this.router.navigate(['/login']);
-  }
 }
