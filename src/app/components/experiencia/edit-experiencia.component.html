@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 col-xl-7">
         <form class="was-validated needs-validation" id="contactForm" (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-          
+
           <!-- Id experiencia-->
           <div class="form-floating mb-3" [hidden]="true">
             <input class="form-control" id="idexperiencia" name="idexperiencia" type="text" required
@@ -55,20 +55,21 @@
 
           <!-- Fecha de Final-->
           <div class="form-floating mb-3">
-            <input class="form-control" id="fechaFin" name="fechaFin" type="date" placeholder="Fecha Final"
-            required  [(ngModel)]="expLab.fecha_fin" />
+            <input class="form-control" id="fechaFin" name="fechaFin" type="date" placeholder="Fecha Final" required
+              [(ngModel)]="expLab.fecha_fin" />
             <label for="fechaInicio">Fecha Final</label>
           </div>
 
-          <!-- Submit Button-->
-          <div>
-            <button class="btn btn-primary btn-xl" id="submitButton" type="submit" name="button" title="Enviar">
-              ENVIAR
-            </button>
+          <!-- Button Save & Cancel-->
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-primary btn-lg" id="guardar" type="submit" name="guardar"
+              title="Guardar experiencia">GUARDAR</button>
+            <button class="btn btn-secondary btn-lg" id="cancelar" type="button" name="cancelar" title="Cancelar"
+              onclick="window.location.href='/'">CANCELAR</button>
           </div>
-        </form>
-      </div>
+      </form>
     </div>
+  </div>
   </div>
 </header>
 <br>

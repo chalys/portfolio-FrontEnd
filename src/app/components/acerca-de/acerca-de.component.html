@@ -21,8 +21,8 @@
             {{ persona.descripcion }}
         </p>
 
-        <div class="d-grid gap-2 col-1 mx-auto" *ngIf="isLogged">
-            <button class="btn btn-light" type="button" title="Editar perfil" routerLink="/editacercade/1"
+        <div class="gap-1 d-md-flex justify-content-md-end mb-1" *ngIf="isLogged">
+            <button class="btn btn-light btn-xs" type="button" title="Editar perfil" routerLink="/editacercade/1"
                 *ngIf="isLogged">
                 <i class="bi bi-pencil-fill"></i>
             </button>

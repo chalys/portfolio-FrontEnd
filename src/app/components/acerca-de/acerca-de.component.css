@@ -1,58 +1,28 @@
-.description {
-    font-size: 1.4em;
-    white-space: pre-line;
+  .superponer{
+    margin-top: -16vh;
   }
   
-  #foto-perfil {
-    width: 18.75em;
-    height: 18.75em;
-    background-size: cover;
-    border-radius: 50%;
-    margin: 0 auto;
+  .logo-sm{
+    width: 1.2em;
+    height: 1.2em;
+    margin: .2em;
   }
   
-
-/*
-img{
-    width: 100%;
-    height: 595px;
-}
-*/
-/*Estilo de la foto de perfil*/
-@media (min-width: 576px){
-    #fotodeperfil{
-/*        position: absolute;
-        width: 15%;*/
-        border-radius: 100%;
-        box-shadow: 3px 3px 3px grey;
-        /*left: 3%;
-        top:500px;*/
-
-    }
-  /*  .desripcion{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }*/
-}
-
-@media (max-width: 575px){
-    #fotodeperfil{
-        position: absolute;
-        width: 30%;
-        border-radius: 100%;
-        box-shadow: 3px 3px 3px grey;
-        left: 33%;
-        top:950px;
-    }
-}
-
-/*Etiqueta nombre*/
-
-#nombre{
-    font-weight: bold;
-    margin-top: 30%;
-
-}
-
+  .mt-8{
+    margin-top: 8em;
+  }
+  
+  .mt-10{
+    margin-top: 10em;
+  }
+  
+  .acomodar-pro{
+    margin-top: 10px;
+  }
+  
+  .acomodar-pro-2{
+    margin-top: 120px;
+  }
+  
+  
 

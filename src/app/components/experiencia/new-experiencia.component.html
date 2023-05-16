@@ -46,15 +46,19 @@
 
           <!-- Fecha de Final-->
           <div class="form-floating mb-3">
-            <input class="form-control" id="fecha_fin" name="fecha_fin" type="date" placeholder="Fecha Final"
-            required [(ngModel)]="fecha_fin" />
+            <input class="form-control" id="fecha_fin" name="fecha_fin" type="date" placeholder="Fecha Final" required
+              [(ngModel)]="fecha_fin" />
             <label for="fecha_fin">Fecha Final</label>
           </div>
 
           <div>
-            <button class="btn btn-primary btn-xl" id="submitButton" type="submit" title="Enviar">
-              Agregar experiencia
-            </button>
+            <!-- Button New & Cancel-->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+              <button class="btn btn-primary btn-lg" id="guardar" type="submit" name="guardar"
+                title="Agregar experiencia">AGREGAR</button>
+              <button class="btn btn-secondary btn-lg" id="cancelar" type="button" name="cancelar" title="Cancelar"
+                onclick="window.location.href='/'">CANCELAR</button>
+            </div>
           </div>
         </form>
       </div>

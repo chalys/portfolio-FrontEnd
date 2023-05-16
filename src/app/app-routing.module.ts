@@ -11,27 +11,60 @@ import { EditSkillComponent } from './components/hys/edit-skill.component';
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
 import { NewProyectoComponent } from './components/proyecto/new-proyecto.component';
 import { EditProyectoComponent } from './components/proyecto/edit-proyecto.component';
-
-
-
+import { authGuardFn } from './guards/auth-fn.guard';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
-  {path:'login', component:LoginComponent},
-  { path: 'newexp', component: NewExperienciaComponent},
-  { path: 'editexp/:id', component: EditExperienciaComponent},
-  { path: 'newedu', component: NeweducacionComponent},
-  { path: 'editedu/:id', component: EditeducacionComponent},
-  { path: 'newskill', component: NewSkillComponent},
-  { path: 'editskill/:id', component: EditSkillComponent},
-  { path: 'editacercade/:id', component: EditAcercaDeComponent},
-  { path: 'newproy', component: NewProyectoComponent},
-  { path: 'editproy/:id', component: EditProyectoComponent},
-
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'newexp',
+    canActivate: [authGuardFn],
+    component: NewExperienciaComponent,
+  },
+  {
+    path: 'editexp/:id',
+    canActivate: [authGuardFn],
+    component: EditExperienciaComponent,
+  },
+  {
+    path: 'newedu',
+    canActivate: [authGuardFn],
+    component: NeweducacionComponent,
+  },
+  {
+    path: 'editedu/:id',
+    canActivate: [authGuardFn],
+    component: EditeducacionComponent,
+  },
+  {
+    path: 'newskill',
+    canActivate: [authGuardFn],
+    component: NewSkillComponent,
+  },
+  {
+    path: 'editskill/:id',
+    canActivate: [authGuardFn],
+    component: EditSkillComponent,
+  },
+  {
+    path: 'editacercade/:id',
+    canActivate: [authGuardFn],
+    component: EditAcercaDeComponent,
+  },
+  {
+    path: 'newproy',
+    canActivate: [authGuardFn],
+    component: NewProyectoComponent,
+  },
+  {
+    path: 'editproy/:id',
+    canActivate: [authGuardFn],
+    component: EditProyectoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

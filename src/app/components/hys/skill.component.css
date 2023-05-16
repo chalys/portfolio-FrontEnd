@@ -1,4 +1,8 @@
-.row{
-    background-color: #ffffff;
-    padding: 20px;
-}
+.row {
+    padding: 1.25em;
+  }
+  
+  circle-progress {
+    text-transform: capitalize;
+  }
+  

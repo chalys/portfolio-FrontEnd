@@ -18,7 +18,13 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   errMsj!: string;
 
-  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
+
+
+
+  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { 
+
+  
+  }
 
   ngOnInit(): void {
     if(this.tokenService.getToken()){
@@ -28,7 +34,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
   onLogin(): void{
+
+
+
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password); 
     this.authService.login(this.loginUsuario).subscribe(data =>{
         this.isLogged = true;
