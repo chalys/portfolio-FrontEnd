@@ -7,29 +7,34 @@
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
-        <form #f="ngForm"  (ngSubmit)="onLogin()" novalidate>
+        <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
           <div class="d-flex flex-row align-items-center justify-content-center">
             <p class="lead fw-normal mb-0 me-3">LOGIN</p>
           </div>
           <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0">Por favor, ingresar usuario y password</p>
+            <p class="form-label">Por favor, ingresar usuario y password</p>
           </div>
+
           <!-- User input -->
           <div class="form-outline form-white mb-4">
-            <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg"
-              [(ngModel)]="nombreUsuario" required />
+            <input class="form-control form-control-lg" id="nombreUsuario" name="nombreUsuario" type="email" required
+              [(ngModel)]="nombreUsuario" />
             <label class="form-label" for="nombreUsuario">Usuario</label>
           </div>
+
           <!-- Password input -->
           <div class="form-outline form-white mb-4">
-            <input type="password" id="password" name="password" class="form-control form-control-lg"
-              [(ngModel)]="password" required />
+            <input class="form-control form-control-lg" id="password" name="password" type="password" required
+              [(ngModel)]="password" />
             <label class="form-label" for="password">Password</label>
           </div>
+
           <!-- Buttons Login & Cancel -->
           <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
-            <button class="btn btn-secondary" type="button" onclick="window.location.href='/'">Cancelar</button>
+            <button class="btn btn-primary text-uppercase font-weight-bold  text-white rounded btn-lg"
+              type="submit">Iniciar Sesión</button>
+            <button class="btn btn-secondary text-uppercase font-weight-bold  text-white rounded btn-lg" type="button"
+              onclick="window.location.href='/'">Cancelar</button>
           </div>
 
         </form>
